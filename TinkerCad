@@ -1,0 +1,65 @@
+//Lo que esta comentado no puedo ponerlo en tinker es para arduino.
+//#include <SoftwareSerial.h>
+#include <Servo.h>
+//SoftwareSerial mySerial(3,2);
+
+//String value = "";
+//float x = 0;
+//float y = 0;
+int SERVO=10;
+int MOTOR=11;
+float Valor; 
+float TMP=15;
+
+
+void setup()
+ {
+  pinMode(MOTOR,OUTPUT);
+  Serial.begin (9600);  
+}
+  //{
+ // Serial.begin(9600);
+  //mySerial.begin(9600);
+//}
+
+void loop()
+{
+  Valor = analogRead (TMP);  
+  float voltaje = (5.0 /1024) * Valor;
+  float T = (voltaje - 0.5) * 100.0; 
+  Serial.print("\n ");
+  Serial.print ("Temperatura actual: ");  
+  Serial.println (T);                        
+  
+  if(T<=25){   
+    digitalWrite(MOTOR,1); 
+  }
+  else
+  {
+   digitalWrite(MOTOR,0); 
+  }
+ }
+   //{
+ // while(mySerial.avaliable() {
+    
+    //char SERVO = mySerial.read();
+    
+    //if (SERVO=="y" or SERVO=="x")
+     // {
+     // Serial.print(SERVO);
+      //Serial.print("=");
+      //Serial.print(value)
+        
+       // if (SERVO=="x")
+       // x=value.tofloat();
+        //else
+       //y=value.tofloat();
+        
+        //x=0;
+      	//y=0;
+      	//value="";
+       // }
+	//else
+ // }
+        //value.concat(SERVO);
+//}
